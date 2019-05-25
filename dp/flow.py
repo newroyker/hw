@@ -18,11 +18,11 @@ display(df_prime)
 
 # COMMAND ----------
 
-persist(df_prime, "/tmp/roy/hw_parquet_table")
+persist(df_prime, "/tmp/roy/hw_delta_table")
 
 # COMMAND ----------
 
-display(spark.read.format("parquet").load("/tmp/roy/hw_parquet_table"))
+display(spark.read.format("delta").load("/tmp/roy/hw_delta_table"))
 
 # COMMAND ----------
 

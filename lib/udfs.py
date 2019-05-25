@@ -9,5 +9,5 @@ def xform(df):
 	return df.select(multiply(col("x"), col("x"))).withColumnRenamed("multiply_func(x, x)", "squared")
 
 def persist(df, table_path):
-	df.write.format("parquet").mode("overwrite").save(table_path)
+	df.write.format("delta").mode("overwrite").save(table_path)
 	
