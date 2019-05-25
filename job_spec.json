@@ -1,0 +1,35 @@
+{
+  "name": "Daily flow",
+  "new_cluster": {
+      "enable_elastic_disk": false,
+      "node_type_id": "i3.xlarge",
+      "num_workers": 1,
+      "spark_version": "5.3.x-scala2.11",
+      "aws_attributes": {
+        "ebs_volume_count": 0,
+        "spot_bid_price_percent": 100,
+        "availability": "SPOT_WITH_FALLBACK",
+        "zone_id": "us-west-2b",
+        "first_on_demand": 1
+      }
+    },
+  "libraries": [
+    {
+      "whl": "dbfs:/tmp/roy/hw_lib/lib-0.1-py2-none-any.whl"
+    }
+  ],
+  "email_notifications": {
+    "on_start": [],
+    "on_success": [],
+    "on_failure": []
+  },
+  "timeout_seconds": 3600,
+  "max_retries": 1,
+  "schedule": {
+      "timezone_id": "US/Pacific",
+      "quartz_cron_expression": "0 0 * * * ?"
+  },
+  "notebook_task": {
+      "notebook_path": "/Users/debajyoti.roy@databricks.com/hw/flow"
+  }
+}

@@ -1,0 +1,5 @@
+dist
+build
+.pytest_cache
+lib.egg-info
+.DS_Store
