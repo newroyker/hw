@@ -1,11 +1,10 @@
 # Databricks notebook source
-from lib.udfs import xform, persist
+from lib.utils import xform, load, store
 import pandas as pd
 
 # COMMAND ----------
 
-x = pd.Series([4, 5, 6])
-df = spark.createDataFrame(pd.DataFrame(x, columns=["x"]))
+df = spark.range(1, 10)
 display(df)
 
 # COMMAND ----------
@@ -14,15 +13,23 @@ df_prime = xform(df)
 
 # COMMAND ----------
 
-display(df_prime)
+display(
+	df_prime
+)
 
 # COMMAND ----------
 
-persist(df_prime, "/tmp/roy/hw_delta_table")
+delta_path = "/tmp/roy/hw_dp"
 
 # COMMAND ----------
 
-display(spark.read.format("delta").load("/tmp/roy/hw_delta_table"))
+store(df_prime, delta_path)
+
+# COMMAND ----------
+
+display(
+	load(spark, delta_path)
+)
 
 # COMMAND ----------
 

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 pytest
 
 databricks workspace import -o -f SOURCE -l PYTHON dp/flow.py /Users/debajyoti.roy@databricks.com/hw/flow
