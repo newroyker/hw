@@ -5,7 +5,7 @@ from pyspark.sql import SparkSession
 from lib.utils import xform, store, load, multiply_func
 
 class TestUtils(object):
-    spark = SparkSession.builder.master("local").config("spark.jars.packages", "io.delta:delta-core_2.12:0.1.0").config("spark.driver.host", "localhost").appName("hw_tests").getOrCreate()
+    spark = SparkSession.builder.master("local").config("spark.jars.packages", "io.delta:delta-core_2.12:0.3.0").config("spark.driver.host", "localhost").appName("hw_tests").getOrCreate()
 
     def test_multiply_func(self):
         ip = pd.Series([1, 2, 3])

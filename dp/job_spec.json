@@ -4,7 +4,7 @@
       "enable_elastic_disk": false,
       "node_type_id": "i3.xlarge",
       "num_workers": 1,
-      "spark_version": "5.3.x-scala2.11",
+      "spark_version": "5.5.x-scala2.11",
       "aws_attributes": {
         "ebs_volume_count": 0,
         "spot_bid_price_percent": 100,
