@@ -26,19 +26,19 @@ class TestUtils(object):
     	assert(ex_df.collect() == op_df.collect())
 
     def test_store(self):
-        delta_path = "/tmp/roy/hw_store_delta_table"
+        data_path = "/tmp/roy/hw_store_delta_table"
     	ip_df = self.spark.range(10, 12)
 
-    	store(ip_df, delta_path)
+    	store(ip_df, data_path)
 
-    	op_df = self.spark.read.format("delta").load(delta_path)
+    	op_df = self.spark.read.format("delta").load(data_path)
     	assert(op_df.collect() == ip_df.collect())
 
     def test_load(self):
-        delta_path = "/tmp/roy/hw_load_delta_table"
+        data_path = "/tmp/roy/hw_load_delta_table"
         ip_df = self.spark.range(41, 43)
-        ip_df.write.format("delta").mode("overwrite").save(delta_path)
+        ip_df.write.format("delta").mode("overwrite").save(data_path)
 
-        op_df = load(self.spark, delta_path)
+        op_df = load(self.spark, data_path)
 
         assert(op_df.collect() == ip_df.collect())

@@ -19,16 +19,16 @@ display(
 
 # COMMAND ----------
 
-delta_path = "/tmp/roy/hw_dp"
+data_path = "/tmp/roy/hw_dp"
 
 # COMMAND ----------
 
-store(df_prime, delta_path)
+store(df_prime, data_path)
 
 # COMMAND ----------
 
 display(
-	load(spark, delta_path)
+	load(spark, data_path)
 )
 
 # COMMAND ----------
